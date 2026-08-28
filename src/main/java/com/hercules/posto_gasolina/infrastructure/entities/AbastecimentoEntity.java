@@ -3,9 +3,6 @@ package com.hercules.posto_gasolina.infrastructure.entities;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.NotFound;
-import tools.jackson.databind.node.StringNode;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

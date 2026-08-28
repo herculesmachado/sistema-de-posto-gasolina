@@ -2,8 +2,10 @@ package com.hercules.posto_gasolina.infrastructure.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -21,4 +23,7 @@ public class TipoDeCombustivelEntity {
     private String nome;
     @Column(name = "preco_litro", precision = 10, scale = 2, nullable = false)
     private BigDecimal precoLitro;
+    @Column(insertable = false)
+    @CreationTimestamp
+    private LocalDateTime dataHoraRegistro;
 }

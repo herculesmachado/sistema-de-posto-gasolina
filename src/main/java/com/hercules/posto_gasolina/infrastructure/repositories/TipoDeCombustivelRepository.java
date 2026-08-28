@@ -4,5 +4,5 @@ import com.hercules.posto_gasolina.infrastructure.entities.TipoDeCombustivelEnti
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface TipoDeCombustivelRepository extends JpaRepository<TipoDeCombustivelEntity, Long> {
-
+    TipoDeCombustivelEntity findByNome(String nome);
 }
