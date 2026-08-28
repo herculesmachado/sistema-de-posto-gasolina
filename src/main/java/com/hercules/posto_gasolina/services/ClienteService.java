@@ -1,8 +1,5 @@
 package com.hercules.posto_gasolina.services;
-
-import com.hercules.posto_gasolina.controller.AbastecimentoController;
-
-import java.util.Objects;
+import java.util.List;
 
 import org.springframework.stereotype.Service;
 
@@ -21,7 +18,13 @@ public class ClienteService {
             throw new RuntimeException("O nome do cliente não pode ser nulo ou vazio.");
         } 
         return clienteRepository.save(cliente);
-        
-        
+    }
+
+    public List<ClienteEntity> listarClientes() {
+        return clienteRepository.findAll();
+    }
+
+    public void deletarCliente(long id) {
+        clienteRepository.deleteById(id);
     }
 }
