@@ -1,7 +1,6 @@
 package com.hercules.posto_gasolina.controller;
 
-import com.hercules.posto_gasolina.infrastructure.repositories.ClienteRepository;
-import org.hibernate.mapping.List;
+import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,6 +25,11 @@ public class ClienteController {
     @PostMapping
     public ResponseEntity<ClienteEntity> cadastrarCliente(@RequestBody ClienteEntity cliente) {
        return ResponseEntity.ok().body(clienteService.cadastrarCliente(cliente));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<ClienteEntity>> listarClientes() {
+        return ResponseEntity.ok().body(clienteService.listarClientes());
     }
 
     @DeleteMapping
