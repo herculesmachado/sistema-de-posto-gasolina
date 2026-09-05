@@ -1,5 +1,7 @@
 package com.hercules.posto_gasolina.infrastructure.entities;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 import lombok.*;
 

@@ -4,7 +4,9 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,9 +34,21 @@ public class ClienteController {
         return ResponseEntity.ok().body(clienteService.listarClientes());
     }
 
+    @GetMapping("find/{id}")
+    public ResponseEntity<ClienteEntity> buscarCliente(@PathVariable long id) {
+        return ResponseEntity.ok(clienteService.buscarClientePorId(id));
+    }
+
     @DeleteMapping
     public ResponseEntity<Void> deletarCliente(@RequestParam long id) {
         clienteService.deletarCliente(id);
         return ResponseEntity.noContent().build();
     }
+
+    @PutMapping("edit/{id}")
+    public ResponseEntity<ClienteEntity> editarCliente(@PathVariable long id, @RequestBody ClienteEntity clienteAtualizado) {
+        return ResponseEntity.ok().body(clienteService.editarCliente(id, clienteAtualizado));
+    }
+
+    
 }
