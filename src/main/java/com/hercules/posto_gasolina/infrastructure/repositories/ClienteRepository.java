@@ -4,9 +4,13 @@ import com.hercules.posto_gasolina.infrastructure.entities.ClienteEntity;
 
 import jakarta.transaction.Transactional;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ClienteRepository extends JpaRepository<ClienteEntity, Long> {
+    
+    List<ClienteEntity> findByNome(String nome);
     
     @Transactional
     void deleteById(Long id);

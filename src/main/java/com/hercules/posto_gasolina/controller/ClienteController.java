@@ -34,9 +34,9 @@ public class ClienteController {
         return ResponseEntity.ok().body(clienteService.listarClientes());
     }
 
-    @GetMapping("find/{id}")
-    public ResponseEntity<ClienteEntity> buscarCliente(@PathVariable long id) {
-        return ResponseEntity.ok(clienteService.buscarClientePorId(id));
+    @GetMapping("/nome")
+    public ResponseEntity<List<ClienteEntity>> buscarCliente(@RequestParam String nomeCliente) {
+        return ResponseEntity.ok().body(clienteService.buscarClientePorNome(nomeCliente));
     }
 
     @DeleteMapping
@@ -45,7 +45,7 @@ public class ClienteController {
         return ResponseEntity.noContent().build();
     }
 
-    @PutMapping("edit/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<ClienteEntity> editarCliente(@PathVariable long id, @RequestBody ClienteEntity clienteAtualizado) {
         return ResponseEntity.ok().body(clienteService.editarCliente(id, clienteAtualizado));
     }

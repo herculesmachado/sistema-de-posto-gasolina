@@ -1,5 +1,7 @@
 package com.hercules.posto_gasolina.services;
 import java.util.List;
+import java.util.Objects;
+
 import org.springframework.stereotype.Service;
 
 import com.hercules.posto_gasolina.infrastructure.entities.ClienteEntity;
@@ -30,9 +32,14 @@ public class ClienteService {
         return clienteRepository.findAll();
     }
 
-    public ClienteEntity buscarClientePorId(long id) {
-        return clienteRepository.findById(id)
-                                .orElseThrow(() -> new EntityNotFoundException("Buscar não realizado com sucesso no ID: " + id));
+    public List<ClienteEntity> buscarClientePorNome(String nome) {
+        List<ClienteEntity> clienteRetorno = clienteRepository.findByNome(nome);
+
+        if (clienteRetorno.isEmpty()) {
+            throw new RuntimeException("Não existe cliente com esse nome");
+        }
+        
+        return clienteRetorno;
     }
 
     public void deletarCliente(long id) {
