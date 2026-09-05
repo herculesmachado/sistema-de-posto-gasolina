@@ -21,9 +21,6 @@ public class TipoDeCombustivelEntity {
     private Long id;
     @Column(nullable = false, length = 255)
     private String nome;
-    @Column(name = "preco_litro", precision = 10, scale = 2, nullable = false)
+    @Column(precision = 10, scale = 2, nullable = false)
     private BigDecimal precoLitro;
-    @Column(insertable = false)
-    @CreationTimestamp
-    private LocalDateTime dataHoraRegistro;
 }
