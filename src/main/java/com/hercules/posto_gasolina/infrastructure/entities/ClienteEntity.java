@@ -1,7 +1,6 @@
 package com.hercules.posto_gasolina.infrastructure.entities;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
 
