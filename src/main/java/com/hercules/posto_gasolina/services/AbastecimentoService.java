@@ -2,10 +2,9 @@ package com.hercules.posto_gasolina.services;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
+
 import java.util.List;
 
-import org.springframework.beans.factory.ListableBeanFactory;
 import org.springframework.stereotype.Service;
 
 import com.hercules.posto_gasolina.dto.AbastecimentoDTO;
