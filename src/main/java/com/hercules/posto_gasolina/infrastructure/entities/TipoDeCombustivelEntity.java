@@ -16,11 +16,15 @@ import java.time.LocalDateTime;
 @Table(name = "tipo_de_combustivel")
 public class TipoDeCombustivelEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "combustivel_seq")
-    @SequenceGenerator(name = "combustivel_seq", sequenceName = "combustivel_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "combustivel_id")
+    @SequenceGenerator(name = "combustivel_id", sequenceName = "combustivel_id", allocationSize = 1)
     private Long id;
     @Column(nullable = false, length = 255)
     private String nome;
     @Column(precision = 10, scale = 2, nullable = false)
     private BigDecimal precoLitro;
+
+    @CreationTimestamp
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime dataHoraRegistroTipoDeCombustivel;
 }

@@ -37,7 +37,7 @@ public class TipoDeCombustivelService {
         return tipoDeCombustivelRepository.findByNome(nomeCombustivel);
     }
 
-    public TipoDeCombustivelEntity editarPrecoDoCombustivel(long id,BigDecimal novoPrecoLitro) {
+    public TipoDeCombustivelEntity editarPrecoDoCombustivel(long id, BigDecimal novoPrecoLitro) {
         TipoDeCombustivelEntity tipoDeCombustivelExistente = tipoDeCombustivelRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Tipo de combustivel não encontrado"));
 
         tipoDeCombustivelExistente.setPrecoLitro(novoPrecoLitro);

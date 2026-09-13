@@ -1,6 +1,9 @@
 package com.hercules.posto_gasolina.infrastructure.entities;
 
+import java.time.LocalDateTime;
 import java.util.List;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -14,8 +17,8 @@ import lombok.*;
 @Table(name = "cliente")
 public class ClienteEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "cliente_seq")
-    @SequenceGenerator(name = "cliente_seq", sequenceName = "cliente_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "cliente_id")
+    @SequenceGenerator(name = "cliente_id", sequenceName = "cliente_id", allocationSize = 1)
     private Long id;
 
     @Column(length = 255, nullable = false)
@@ -26,4 +29,8 @@ public class ClienteEntity {
 
     @Column(length = 11)
     private String telefoneCliente;
+
+    @CreationTimestamp
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime dataHoraRegistroCliente;
 }

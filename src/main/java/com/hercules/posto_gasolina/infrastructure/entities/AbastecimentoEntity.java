@@ -7,7 +7,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@Getter
+@Getter 
 @Setter
 @Entity
 @Builder
@@ -35,7 +35,7 @@ public class AbastecimentoEntity {
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal valorTotal;
 
-    @Column(insertable = false)
     @CreationTimestamp
-    private LocalDateTime dataHoraAbastecimento;
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime dataHoraRegistroAbastecimento;
 }
