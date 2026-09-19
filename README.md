@@ -37,7 +37,6 @@ A API permite:
 * Listar combustíveis
 * Buscar combustível por ID
 * Atualizar informações
-* Excluir combustíveis
 
 Cada combustível possui informações como:
 
